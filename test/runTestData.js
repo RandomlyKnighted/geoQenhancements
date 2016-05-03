@@ -1,9 +1,9 @@
 var http = require('http');
-var recArray = require('./recording.json');
+var recArray = require('./station1_to_alcom.json');
 var rta = recArray.recordedTrack;
 
 var options = {
-  host: 'alrescha',
+  host: 'localhost',
   //host: ,
   port: 5000, //if you are using a non-standard port number
   path: '/api/v1/trolly/0/location',
@@ -36,7 +36,7 @@ var i = 0;
 var len = rta.length; 
 (function myLoop (i) {          
    setTimeout(function () {   
-      callit(rta[i][0],rta[i][1]);          //  your code here                
-      if ((++i) - len) myLoop(i);      //  decrement i and call myLoop again if i > 0
+      callit( rta[i][0], rta[i][1] );          //  your code here                
+      if ( (++i) - len) myLoop(i);      //  decrement i and call myLoop again if i > 0
    }, 2000)
 })(i); 
